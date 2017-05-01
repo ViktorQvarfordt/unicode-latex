@@ -16,6 +16,11 @@ This package uses standard LaTeX commands, e.g. `\mathbb{C}` instead of `\BbbC`,
 The files are generated from the file `unicode-math-table.tex` (taken from [unicode-math](https://github.com/wspr/unicode-math)) with the script `generate.py` which modernizes and normalizes the data, and adds missing symbols and synonyms.
 
 
+## ToDo
+
+Currently there is no support for subscripts and superscripts in the LaTeX packge. This cannot be done trivially by mapping `¹` to `^1` because then sub/superscritps cannot be joined (`^1^2` gives latex error "double superscritps"). The solution should be to parse unicode sub/superscripts like [unicode-math](https://github.com/wspr/unicode-math) does.
+
+
 ## Sublime Text unicode input
 
 The package [InstantUnicode](https://github.com/ViktorQvarfordt/Sublime-InstantUnicode) provides easy input of unicode symbols, it uses `latex-unicode.json`.
