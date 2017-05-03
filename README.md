@@ -13,7 +13,7 @@ This package strives to cover all symbols and to use standard LaTeX commands. Pl
 
 This package uses standard LaTeX commands, e.g. `\mathbb{C}` instead of `\BbbC`, in contrast to other unicode packages (e.g. [unicode-math](https://github.com/wspr/unicode-math) and [Julia](https://github.com/JuliaLang/julia/) REPL).
 
-The files are generated from the file `unicode-math-table.tex` (taken from [unicode-math](https://github.com/wspr/unicode-math)) with the script `generate.py` which modernizes and normalizes the data, and adds missing symbols and synonyms.
+The files where originally generated from the file `unicode-math-table.tex` (taken from [unicode-math](https://github.com/wspr/unicode-math)) with the script `generate.py` which standardizes and normalizes the data, and adds missing symbols and synonyms. After this I have started to make manual changes to the files, to fix errors in the original files.
 
 
 ## ToDo
