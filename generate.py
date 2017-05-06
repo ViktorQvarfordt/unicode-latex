@@ -34,7 +34,7 @@ with open('./latex-unicode.json') as f:
         reversedJson += '"%s":"%s",\n' % (symbol, texcmd)
 
         # Don't add ascii to LaTeX package
-        if symbol == '\\\\' or ord(symbol) < 255:
+        if symbol == '\\\\' or ord(symbol) < 128:
             continue
 
         # Normalization
