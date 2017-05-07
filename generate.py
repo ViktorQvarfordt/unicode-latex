@@ -1,26 +1,37 @@
 #!/usr/bin/env python3
 
+import datetime
 import re
 
 reversedJson = '{\n'
 
-latexout = """\\ProvidesPackage{unicode-latex}[2017/04/30 use unicode symbols in math input]
+latexout = """\\ProvidesPackage{unicode-latex}[%s use unicode symbols in math input]
 
 \\usepackage[T1]{fontenc}
 \\usepackage[utf8]{inputenc}
-\\usepackage{mathtools,amssymb,bm,bbm,mathdots}
+\\usepackage{mathtools,amssymb,bm}
 
+%% Fix font for sans-serif math.
 \\DeclareMathAlphabet{\\mathss}{\\encodingdefault}{\\sfdefault}{m}{n}
 \\SetMathAlphabet{\\mathss}{bold}{\\encodingdefault}{\\sfdefault}{bx}{n}
 
+%% Fix font for sans-serif italic math.
 \\DeclareMathAlphabet{\\mathssit}{\\encodingdefault}{\\sfdefault}{m}{sl}
 \\SetMathAlphabet{\\mathssit}{bold}{\\encodingdefault}{\\sfdefault}{bx}{sl}
 
-\DeclareMathAlphabet{\mathbbmsl}{U}{bbm}{m}{sl}
+%% Fix font for ⋰ etc.
+\\usepackage{mathdots}
+
+%% Fix double-struck italic by providing the command \mathbbit.
+%% The only unicode glyphs for this are ⅅ ⅆ ⅇ ⅈ ⅉ.
+%% No, don't do it. Who would use it?
+%%\\usepackage{bbm}
+%%\\DeclareMathAlphabet{\\mathbbit}{U}{bbm}{m}{sl}
 
 \\usepackage{newunicodechar}
 
-"""
+""" % datetime.datetime.now().strftime("%Y/%m/%d")
+
 with open('./latex-unicode.json') as f:
     for line in f.readlines():
 
