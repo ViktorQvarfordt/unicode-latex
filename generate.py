@@ -8,7 +8,7 @@ latexout = """\\ProvidesPackage{unicode-latex}[2017/04/30 use unicode symbols in
 
 \\usepackage[T1]{fontenc}
 \\usepackage[utf8]{inputenc}
-\\usepackage{mathtools,amssymb,bm,bbm}
+\\usepackage{mathtools,amssymb,bm,bbm,mathdots}
 
 \\DeclareMathAlphabet{\\mathss}{\\encodingdefault}{\\sfdefault}{m}{n}
 \\SetMathAlphabet{\\mathss}{bold}{\\encodingdefault}{\\sfdefault}{bx}{n}
