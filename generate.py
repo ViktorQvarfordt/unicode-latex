@@ -42,13 +42,43 @@ with open('./latex-unicode.json') as f:
             m = re.search(r'\\\\mathit{(.*?)}', texcmd)
             texcmd = m.group(1)
 
+        # LaTeX has no commands to greek symbols that look identical to the corresponding latin symbol.
+        if texcmd == '\\\\Alpha':
+            texcmd = 'A'
+        if texcmd == '\\\\Beta':
+            texcmd = 'B'
+        if texcmd == '\\\\Epsilon':
+            texcmd = 'E'
+        if texcmd == '\\\\Zeta':
+            texcmd = 'Z'
+        if texcmd == '\\\\Eta':
+            texcmd = 'H'
+        if texcmd == '\\\\Iota':
+            texcmd = 'I'
+        if texcmd == '\\\\Kappa':
+            texcmd = 'K'
+        if texcmd == '\\\\Mu':
+            texcmd = 'M'
+        if texcmd == '\\\\Nu':
+            texcmd = 'N'
+        if texcmd == '\\\\Omicron':
+            texcmd = 'O'
+        if texcmd == '\\\\Rho':
+            texcmd = 'P'
+        if texcmd == '\\\\Tau':
+            texcmd = 'T'
+        if texcmd == '\\\\Chi':
+            texcmd = 'X'
+        if texcmd == '\\\\omicron':
+            texcmd = 'o'
+
         # TODO: Handle sub-/superscripts
         # if texcmd[0] in '_^':
         #     ...
 
         symbol = symbol.replace('\\\\', '\\')
         texcmd = texcmd.replace('\\\\', '\\')
-        latexout += '\\newunicodechar{%s}{\\ifmmode%%\n%s\\else%%\n%s%%\n\\fi}\n' % (symbol, texcmd, symbol)
+        latexout += '\\newunicodechar{%s}{\\ifmmode%%\n%s\\else%%\n%s\\fi}\n' % (symbol, texcmd, symbol)
         # TODO: Put \relax before \ifmmode https://tex.stackexchange.com/questions/197198/why-is-it-recommended-to-put-relax-before-ifmmode
 
 reversedJson += '}\n'
