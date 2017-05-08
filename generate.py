@@ -53,6 +53,10 @@ with open('./latex-unicode.json') as f:
             m = re.search(r'\\\\mathit{(.*?)}', texcmd)
             texcmd = m.group(1)
 
+        # \surd takes no arguments, it's nice to have √{123} = \sqrt{123}
+        if texcmd == '\\\\surd':
+            continue
+
         # LaTeX has no commands to greek symbols that look identical to the corresponding latin symbol.
         if texcmd == '\\\\Alpha':
             texcmd = 'A'
